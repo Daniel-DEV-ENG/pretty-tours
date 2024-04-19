@@ -7,7 +7,7 @@ import ProSidebarContent from "./ProSidebarContent";
 
 const MobileMenu = () => {
   return (
-    <div className="mobilie_header_nav stylehome1">
+    <div className="mobilie_header_nav stylehome1 ">
       <div className="mobile-menu">
         <div className="header innerpage-style">
           <div className="menu_and_widgets">
@@ -19,24 +19,11 @@ const MobileMenu = () => {
                 data-bs-target="#mobileMenu"
                 aria-controls="mobileMenu"
               >
-                <Image
-                  width={25}
-                  height={9}
-                  src="/images/mobile-dark-nav-icon.svg"
-                  alt="mobile icon"
-                />
-              </a>
-              <Link className="mobile_logo" href="/">
-                <Image
-                  width={138}
-                  height={44}
-                  src="/images/header-logo2.svg"
-                  alt="logo"
-                />
-              </Link>
-              <Link href="/login">
-                <span className="icon fz18 far fa-user-circle" />
-              </Link>
+            
+            <i style={{color:"#fff",fontSize:"21px" }} class="fa-solid fa-bars "></i>         
+             </a>
+           
+                <h4 className="font-content mobileMenu-Pretty-Tours">Pretty Tours</h4>
             </div>
           </div>
         </div>

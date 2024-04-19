@@ -6,67 +6,80 @@ import Social from "./Social";
 import Subscribe from "./Subscribe";
 import MenuWidget from "./MenuWidget";
 import Copyright from "./Copyright";
+import CardForm from "./CardForm";
+import { Rectangle124 } from "./ImageFooter";
 
 const Footer = () => {
   return (
     <>
-      <div className="container">
-        <div className="row bb-white-light pb30 mb60">
-          <div className="col-sm-5">
-            <div className="footer-widget text-center text-sm-start">
-              <Link className="footer-logo" href="/">
-                <Image
-                  width={138}
-                  height={44}
-                  className="mb40"
-                  src="/images/header-logo.svg"
-                  alt=""
-                />
-              </Link>
-            </div>
-          </div>
-          {/* End .col */}
+      <Rectangle124 />
 
-          <div className="col-sm-7">
-            <div className="social-widget text-center text-sm-end">
-              <Social />
-            </div>
-          </div>
-          {/* End .col */}
-        </div>
-        {/* End .row */}
+      <div className="section-footer" >
+        <div className="d-flex justify-content-center align-items-center  ">
+        <div className=" pl60 pr60 ">
 
-        <div className="row">
-          <div className="col-md-6">
-            <div className="row justify-content-between">
-              <MenuWidget />
-            </div>
-          </div>
-          {/* End .col */}
+<div className="row justify-content-center   sectionConnect  ">
+  <div className="col-lg-4">
+    <div className="row justify-content-center">
+      <h3 className="font-title  text-start ">Pretty tours</h3>
+      <p className="font-content text-start">We ara a lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut </p>
 
-          <div className="col-md-6 col-lg-4 offset-lg-2">
-            <div className="footer-widget mb-4 mb-lg-5">
-              <ContactMeta />
-              <div className="footer-widget mb-4 mb-lg-5">
-                <div className="mailchimp-widget mb-4 mb-lg-5">
-                  <h6 className="title text-white mb20">
-                    Keep Yourself Up to Date
-                  </h6>
-                  <Subscribe />
-                </div>
-              </div>
+    </div>
+  </div>
+  <div className="col-lg-4">
+    <div className="row justify-content-center">
+      <h3 className="text-center font-title">Connect with us</h3>
+      <p className="text-center">+00 000 000 00</p>
+      <p className="text-center">info@prettytours.com</p>
 
-              <AppWidget />
-            </div>
-          </div>
-          {/* End .col */}
-        </div>
-        {/* End .row */}
+      <div className="footer-icon d-flex gap-2 justify-content-center">
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-youtube"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-whatsapp"></i>
+        <i class="fa-brands fa-whatsapp"></i>
       </div>
-      {/* End .container */}
 
-      <Copyright />
+    </div>
+  </div>
+  {/* End .col */}
+
+  <div className="col-md-6 col-lg-4 ">
+    <div className="footer-widget mb-4 mb-lg-5">
+
+      <AppWidget />
+
+
+
+    </div>
+  </div>
+  {/* End .col */}
+
+</div>
+{/* End .row */}
+
+</div>
+
+        </div>
+
+        {/* End .row */}
+        <div style={{ position: 'relative', bottom: '140px', left: '75%' }} >
+          <img src="/images/Footer img.png" alt="image" height={300} width={350} />
+
+        </div>
+
+        <div style={{ position: 'relative', bottom: '50px' }} >
+
+        <Copyright />
+        </div>
+     
+
+        {/* End .container */}
+
+      </div>
+
       {/* End copyright */}
+
     </>
   );
 };

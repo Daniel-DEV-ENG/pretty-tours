@@ -88,9 +88,9 @@
 // ];
 
 export const Services = [
-  { href: "/VIP Servics", label: "VIP Servics" },
+  { href: "/services/vip", label: "VIP Servics" },
   { href: "/Tours UK", label: "Tours UK" },
-  { href: "/Coaches Tours", label: "Coaches Tours" },
+  { href: "/CoachesTours", label: "Coaches Tours" },
 ];
 
 // export const pageItems = [

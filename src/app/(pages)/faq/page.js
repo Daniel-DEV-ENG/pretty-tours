@@ -69,11 +69,6 @@ const Faq = () => {
       <CallToActions />
       {/* Our CTA */}
 
-      {/* Start Our Footer */}
-      <section className="footer-style1 pt60 pb-0">
-        <Footer />
-      </section>
-      {/* End Our Footer */}
     </>
   );
 };

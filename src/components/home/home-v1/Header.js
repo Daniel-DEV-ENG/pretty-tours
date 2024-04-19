@@ -10,34 +10,21 @@ import React, { useEffect, useState } from "react";
 const Header = () => {
   const [navbar, setNavbar] = useState(false);
 
-  const changeBackground = () => {
-    if (window.scrollY >= 10) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-    return () => {
-      window.removeEventListener("scroll", changeBackground);
-    };
-  }, []);
+ 
 
   return (
     <>
       <header
-        className={`header-nav nav-homepage-style main-menu  ${
+        className={`header-nav nav-homepage-style main-menu   ${
           navbar ? "sticky slideInDown animated" : ""
         }`}
       >
-        <nav className="posr">
-          <div className="container posr menu_bdrt1">
-            <div className="row align-items-center justify-content-between">
+        <nav className="posr ">
+          <div className=" posr menu_bdrt1 p-0 ">
+            <div className="row align-items-center justify-content-between p-0">
               <div className="col-md-12">
                 <div className="d-flex align-items-center justify-content-between">
-                  <div className="logos mr40 ">
+                  <div className="logos" style={{marginLeft:'90px'}}>
                     <Link className="header-logo logo1" href="/">
                       <Image
                         width={103}
@@ -55,32 +42,36 @@ const Header = () => {
 
                     </div>
 
-                    <div className="d-flex gap-3 ">
-          <img width={30} height={30} src="/images/test.svg"/>
-          <img width={30} height={30} src="/images/test.svg"/>
-          <img width={30} height={30} src="/images/test.svg"/>
+                    <div className="d-flex gap-3  " style={{marginRight:'90px'}}>
+                    <div className="border-circle">
+  <img className="" width={25} height={25} src="/images/test.svg" alt="Test Image"/>
+</div>
+<div className="border-circle">
+
+          <img width={25} height={25} src="/images/world.svg"/>
+          </div>
+<div className="border-circle">
+<a href="/auth/login">
+
+          <img width={40} height={40} src="/images/user.svg"/>
+</a>
+          </div>
+
+
 
   </div>
                   {/* End Main Menu */}
                 </div>
               </div>
-              {/* End .col-auto */}
+    
 
               
             </div>
-            {/* End .row */}
+ 
           </div>
         </nav>
       </header>
-      {/* End Header */}
 
-      {/* Signup Modal */}
-
-      {/* End Signup Modal */}
-
-      {/* DesktopSidebarMenu */}
-   
-      {/* Sidebar Panel End */}
     </>
   );
 };

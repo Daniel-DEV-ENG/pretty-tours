@@ -257,18 +257,8 @@ li {
 .app-widget {
     position: relative;
 }
-.app-widget .app-info {
-    background-color: rgba(255, 255, 255, 0.04);
-    border-radius: 12px;
-    padding: 10px 20px 2px;
-    width: 210px;
-    -webkit-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-.app-widget .app-info:hover {
-    background-color: #eb6753;
-}
+
+
 .app-widget .app-info.light-style {
     background-color: #181a20;
 }
@@ -1035,7 +1025,7 @@ li {
 .chat-member-list img {
     width: 50px;
 }
-.chat-member-list .list-item {
+.chat-member-list  {
     padding: 15px 0;
 }
 
@@ -3207,32 +3197,85 @@ li {
 
 /* Hero Styles All Type Of */
 .home-banner-style1 {
-    background-image: url(../images/Image-ban.jpg);
-    background-repeat: no-repeat;
-    position: relative;
     height: 100vh;
-    background-position: center;
-    border-radius: 0px 0px 150px 0px !important;
+    border-radius: 0px 0px 150px 0px;
+background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.10) 100%), url(../images/Image-ban.jpg) lightgray -0.208px -88px / 100.23% 124.026% no-repeat;
+}
+.home-services-style1 {
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 53.73%), linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0) 64.5%), url(../images/image.png) lightgray 0.914px -55.19px/101.077% 124.026% no-repeat;
+}
+.home-services-style1 .home-style1{
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    height: 600px; 
 }
 .home-banner-style1 .home-style1 {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    height: 860px;
+    height: 880px;
 }
-@media (max-width: 767px) {
+@media only screen and (min-width: 600px) and (max-width: 768px) {
     .home-banner-style1 {
         padding: 60px 0 !important;
     }
-}
-@media (max-width: 991.98px) {
-    .home-banner-style1 .home-style1 {
-        height: 500px;
+    .home-services-style1,.home-style1 {
+        height: 150vh;
     }
+    .card-image{
+        width: 100% !important;
+    }
+    .card-service-container{
+        margin-top: 22px !important;
+        border-radius: 10px !important;
+    }
+   
 }
+@media only screen and (min-width: 768px) and (max-width: 1208px) {
+    .home-banner-style1 {
+        padding: 60px 0 !important;
+    }
+    .home-services-style1,.home-style1 {
+        height: 100vh;
+    }
+    .card-image{
+        width: 100% !important;
+    }
+    .card-service-container{
+        margin-top: 22px !important;
+        width: auto !important;
+        // border-radius: 10px !important;
+    }
+   
+}
+@media only screen and (min-width: 100px) and (max-width: 599px) {
+    .home-banner-style1 {
+        padding: 60px 0 !important;
+    }
+    .home-style1 {
+        height: 50vh !important;
+    }
+    .card-image{
+        display: block;
+        width: 100% !important;
+        height: 300px !important;
+    }
+    .card-service-container{
+        font-size: 8px !important;
+        width: 100% !important;
+        height: 100% !important;
+         border-radius: 10px !important;
+         padding-bottom: 40px !important;
+    }
+  
+   
+}
+
+
 
 .inner-banner-style1 .hero-sub-title {
     color: #ffffff;
@@ -3788,9 +3831,7 @@ li {
     }
 }
 @media (max-width: 991.98px) {
-    .home-banner-style6 .home-style1 {
-        height: 600px;
-    }
+
 }
 
 .inner-banner-style6 .hero-sub-title {
@@ -4463,12 +4504,12 @@ li {
 /* Brands */
 /* Commons Styles of Template */
 section {
-    padding: 120px 0;
+    padding: 80px 0;
     position: relative;
 }
 @media (max-width: 991.98px) {
     section {
-        padding: 60px 0;
+        padding: 30px 0;
     }
 }
 
@@ -7163,22 +7204,9 @@ header.nav-innerpage-style .ace-responsive-menu .megamenu_style .mega_menu_list 
     float: left;
     width: 33.33%;
 }
-header.nav-innerpage-style .ace-responsive-menu .megamenu_style a.list-item,
-header.nav-innerpage-style .ace-responsive-menu .visible_list a.list-item {
-    border-radius: 60px;
-    text-align: center;
-    padding: 7px 22px;
-}
-header.nav-innerpage-style .ace-responsive-menu .megamenu_style a.list-item:hover,
-header.nav-innerpage-style .ace-responsive-menu .visible_list a.list-item:hover {
-    background-color: rgba(235, 103, 83, 0.07);
-}
-@media (max-width: 1399.98px) {
-    header.nav-innerpage-style .ace-responsive-menu .megamenu_style a.list-item,
-    header.nav-innerpage-style .ace-responsive-menu .visible_list a.list-item {
-        padding: 7px 17px;
-    }
-}
+
+
+
 header.nav-innerpage-style .ace-responsive-menu a {
     color: var(--headings-color);
     font-family: var(--title-font-family);
@@ -7429,14 +7457,7 @@ header.nav-homepage-style.at-home5.sticky .ace-responsive-menu .visible_list a.l
 }
 
 /*== Mobile Menu Css ==*/
-.header.innerpage-style {
-    background-color: #ffffff;
-    -webkit-box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
-    -o-box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
-    box-shadow: 0px 1px 4px rgba(24, 26, 32, 0.07);
-    height: 65px;
-    line-height: 65px;
-}
+
 
 .mm-panel {
     background-color: #ffffff;
@@ -8062,7 +8083,6 @@ li.mm-listitem:focus {
 }
 .advance-style4.at-home10 .nav.nav-tabs {
     background-color: #181a20;
-    border-bottom: none;
     -webkit-box-pack: flex-start;
     -ms-flex-pack: flex-start;
     justify-content: flex-start;
@@ -10359,7 +10379,20 @@ input:focus-visible {
 
 .posr {
     position: relative;
+    background-color: #03030333;
 }
+
+.posr::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #03030333;
+    opacity: 0.2;
+    z-index: -1;
+  }
 
 .vam {
     vertical-align: middle;
@@ -10406,7 +10439,8 @@ input:focus-visible {
 }
 
 .bdrr1 {
-    border-right: 1px solid #dddddd;
+    border-right: 1px solid #DFE3E7 !important;
+    margin-bottom: 12px;
 }
 
 .border-title-color {
@@ -10514,48 +10548,63 @@ input:focus-visible {
 // **************************************
 
 .Pretty-Tours-container{
-    width: 800px;
-    height: 162px;
+    max-width: 800px;
+    max-height: 162px;
     margin: 0px auto;
 }
 
 
 
 .Pretty-Tours{
-    width: 642px;
-    height: 100px;
-    font-weight: 700;
-    font-size: 88px;
-    color: #fff;
-    line-height: 100px;
-    margin: 2px auto;
-    letter-spacing: -1px;
+   color: var(--White, #FFF);
+text-align: center;
+text-shadow: 0px 4.977px 49.771px rgba(0, 0, 0, 0.35);
+font-family: Rufina;
+font-size: 88px;
+font-style: normal;
+font-weight: 700;
+line-height: 100px; /* 113.636% */
+letter-spacing: -1px;
+text-transform: uppercase;
 
 }
 
 
 
 .hero-content{
-  width: 741px;
-  height: 31px;
+ 
+    color: var(--Gold-Gold, #C9BDAB);
+    text-align: center;
+    font-family: Rufina;
+    font-size: 24.885px;
+    font-style: normal;
     font-weight: 400;
-    font-size: 24.88px;
-    line-height: 30.73px;
-    background-color: #fff;
+    line-height: normal;
+    letter-spacing: 2.986px;
+    text-transform: uppercase;
+    
+}
+.hero-container{
     border-radius: 0px 5px 5px 5px;
-    padding: 9.95px 29.86px 9.95px 29.86px;
-    margin: 0px auto;
-    margin-top: 13px;
-    height: 50px;
+padding: 9.954px 29.863px;
+background: rgba(255, 255, 255, 0.94);
 
 }
 
-
+.filterContainer{
+    border-radius: 10px;
+  border-bottom: 5px solid var(--Gold-Gold, #C9BDAB) !important;
+  background: var(--White, #FFF) !important;
+  box-shadow: 0px 20px 0px 0px rgba(24, 29, 36, 0.72);
+  }
 
 
 @media (max-width: 767.98px) {
     .bdrrn-sm {
         border-right: none;
+    }
+    .filterContainer{
+        display: none;
     }
 }
 @media (max-width: 767.98px) {

@@ -18,7 +18,7 @@ const AppWidget = () => {
 
   return (
     <div className="app-widget">
-      <h5 className="title text-white mb10">Apps</h5>
+      <h3 className="  mb20 font-title-Apps">Apps</h3>
       <div className="row mb-4 mb-lg-5">
         {appList.map((app, index) => (
           <div className="col-auto" key={index}>

@@ -18,13 +18,13 @@ const AppWidget = () => {
 
   return (
     <div className="app-widget">
-      <h5 className="title text-white mb10">Apps</h5>
-      <div className="row mb-4 mb-lg-5">
+      <h5 className="title  mb10">Discover our app</h5>
+      <div className="row  ">
         {appList.map((app, index) => (
           <div className="col-auto" key={index}>
             <a href={app.link} target="_blank" rel="noopener noreferrer">
               <div className="app-info d-flex align-items-center mb10">
-                <div className="flex-shrink-0">
+                <div className="">
                   <i className={app.icon} />
                 </div>
                 <div className="flex-grow-1 ml20">

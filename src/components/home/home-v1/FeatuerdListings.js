@@ -1,126 +1,201 @@
 "use client";
-import listings from "@/data/listings";
-import Image from "next/image";
-import Link from "next/link";
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/swiper-bundle.min.css";
 
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 const FeaturedListings = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    appendDots: dots => (
+      <div>
+            <div style={{ position: 'relative',bottom:"50px" }}>
+            <ul className='dots' ><span className='dotss'>{dots}</span> </ul>
+            
+                        </div>
+      </div>
+    )
+  };
+
   return (
     <>
-      <Swiper
-        spaceBetween={30}
-        modules={[Navigation, Pagination]}
-        navigation={{
-          nextEl: ".featured-next__active",
-          prevEl: ".featured-prev__active",
-        }}
-        pagination={{
-          el: ".featured-pagination__active",
-          clickable: true,
-        }}
-        slidesPerView={1}
-        breakpoints={{
-          300: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-          1024: {
-            slidesPerView: 2,
-          },
-          1200: {
-            slidesPerView: 3,
-          },
-        }}
-      >
-        {listings.slice(0, 4).map((listing) => (
-          <SwiperSlide key={listing.id}>
-            <div className="item">
-              <div className="listing-style1">
-                <div className="list-thumb">
-                  <Image
-                    width={382}
-                    height={248}
-                    className="w-100 h-100 cover"
-                    src={listing.image}
-                    alt="listings"
-                  />
-                  <div className="sale-sticker-wrap">
-                    {!listing.forRent && (
-                      <div className="list-tag fz12">
-                        <span className="flaticon-electricity me-2" />
-                        FEATURED
-                      </div>
-                    )}
-                  </div>
+    <div className='Our-Trending-container '>
+    <div className='row  Our-Trending-row'>
 
-                  <div className="list-price">
-                    {listing.price} / <span>mo</span>
-                  </div>
-                </div>
-                <div className="list-content">
-                  <h6 className="list-title">
-                    <Link href={`/single-v1/${listing.id}`}>{listing.title}</Link>
-                  </h6>
-                  <p className="list-text">{listing.location}</p>
-                  <div className="list-meta d-flex align-items-center">
-                    <a href="#">
-                      <span className="flaticon-bed" /> {listing.bed} bed
-                    </a>
-                    <a href="#">
-                      <span className="flaticon-shower" /> {listing.bath} bath
-                    </a>
-                    <a href="#">
-                      <span className="flaticon-expand" /> {listing.sqft} sqft
-                    </a>
-                  </div>
-                  <hr className="mt-2 mb-2" />
-                  <div className="list-meta2 d-flex justify-content-between align-items-center">
-                    <span className="for-what">For Rent</span>
-                    <div className="icons d-flex align-items-center">
-                      <a href="#">
-                        <span className="flaticon-fullscreen" />
-                      </a>
-                      <a href="#">
-                        <span className="flaticon-new-tab" />
-                      </a>
-                      <a href="#">
-                        <span className="flaticon-like" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      <div className="row align-items-center justify-content-center">
-        <div className="col-auto">
-          <button className="featured-prev__active swiper_button">
-            <i className="far fa-arrow-left-long" />
-          </button>
+  
+          <div className="col-lg-4 col-md-6 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+    <Card  style={{ overflow:"hidden",borderRadius:"8px 8px 30px 8px",position:"relative",maxWidth:"370px" ,top:'4%'}}>
+      <Slider  {...settings}>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide1" />
         </div>
-        {/* End prev */}
-
-        <div className="col-auto">
-          <div className="pagination swiper--pagination featured-pagination__active" />
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/home/home-1.jpg" alt="slide2" />
         </div>
-        {/* End pagination */}
-
-        <div className="col-auto">
-          <button className="featured-next__active swiper_button">
-            <i className="far fa-arrow-right-long" />
-          </button>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide3" />
         </div>
-        {/* End Next */}
+
+      </Slider>
+      <div style={{position:"absolute",left:"85%",top:"30px",color:"#fff"}} >
+      <i style={{opacity:"0.8"}} class="fa-light fa-heart fa-xl pointer"></i>
+       </div>
+      <div className='priceCard' style={{position:"absolute",height:"40px",width:"67px",left:"30px",top:"30px"}} >
+     <span className='font-content' style={{color:"#181d24",padding:"12px"}}>500 $</span>
+       </div>
+      <Card.Body>
+        <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+
+        <span className='font-content' style={{fontWeight:"700",fontSize:"15px"}}>London </span>
+        <i  class="fa-solid fa-circle" style={{fontSize:"8px",color:"#5b656f"}}></i>
+        <span className='font-content' style={{fontWeight:"400",fontSize:"15px",}}>Mountains</span>
+        </div>
+        <Card.Title className='font-title mt-2' style={{fontSize:"36px",fontWeight:"700"}}>Tour Name</Card.Title>
+ 
+
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <i class="fa-light fa-user-group" style={{color:"#918675"}}></i>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>8 </span>
+      <span className='font-content' style={{fontWeight:"700",fontSize:"16px",color:"#181D24"}}> guests</span>
       </div>
-      {/* End .col for navigation and pagination */}
-    </>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <img src='/images/calendar.svg' width={24} height={24}  alt='calendar'/>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>12, September 2024</span>
+    
+      </div>
+
+
+
+      </div>
+
+
+        {/* <i class="fa-solid fa-heart-circle-check fa-beat" style={{color: "#d91212"}}></i> */}
+        
+      </Card.Body>
+    </Card>
+    </div>
+    <div className="col-lg-4 col-md-6 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+    <Card className='Our-Trending-card' style={{ overflow:"hidden",borderRadius:"8px 8px 30px 8px",position:"relative",maxWidth:"370px",top:'4%'   }}>
+      <Slider  {...settings}>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide1" />
+        </div>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/home/home-1.jpg" alt="slide2" />
+        </div>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide3" />
+        </div>
+
+      </Slider>
+      <div style={{position:"absolute",left:"85%",top:"30px",color:"#fff"}} >
+      <i style={{opacity:"0.8"}} class="fa-light fa-heart fa-xl pointer"></i>
+       </div>
+      <div className='priceCard' style={{position:"absolute",height:"40px",width:"67px",left:"30px",top:"30px",}} >
+     <span className='font-content' style={{color:"#181d24",margin:"14px"}}>500 $</span>
+       </div>
+      <Card.Body>
+        <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+
+        <span className='font-content' style={{fontWeight:"700",fontSize:"15px"}}>London </span>
+        <i  class="fa-solid fa-circle" style={{fontSize:"8px",color:"#5b656f"}}></i>
+        <span className='font-content' style={{fontWeight:"400",fontSize:"15px",}}>Mountains</span>
+        </div>
+        <Card.Title className='font-title mt-2' style={{fontSize:"36px",fontWeight:"700"}}>Tour Name</Card.Title>
+ 
+
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <i class="fa-light fa-user-group" style={{color:"#918675"}}></i>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>8 </span>
+      <span className='font-content' style={{fontWeight:"700",fontSize:"16px",color:"#181D24"}}> guests</span>
+      </div>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <img src='/images/calendar.svg'  alt=''/>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>12, September 2024</span>
+    
+      </div>
+
+
+
+      </div>
+
+
+        {/* <i class="fa-solid fa-heart-circle-check fa-beat" style={{color: "#d91212"}}></i> */}
+        
+      </Card.Body>
+    </Card>
+    </div>
+    <div className="col-lg-4 col-md-6 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+    <Card className='Our-Trending-card' style={{ overflow:"hidden",borderRadius:"8px 8px 30px 8px",position:"relative",maxWidth:"370px",top:'4%'   }}>
+      <Slider  {...settings}>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide1" />
+        </div>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/home/home-1.jpg" alt="slide2" />
+        </div>
+        <div>
+          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide3" />
+        </div>
+
+      </Slider>
+      <div style={{position:"absolute",left:"85%",top:"30px",color:"#fff"}} >
+      <i style={{opacity:"0.8"}} class="fa-light fa-heart fa-xl pointer"></i>
+       </div>
+      <div className='priceCard' style={{position:"absolute",height:"40px",width:"67px",left:"30px",top:"30px",}} >
+     <span className='font-content' style={{color:"#181d24",margin:"14px"}}>500 $</span>
+       </div>
+      <Card.Body>
+        <div style={{display:"flex",alignItems:"center",gap:"14px"}}>
+
+        <span className='font-content' style={{fontWeight:"700",fontSize:"15px"}}>London </span>
+        <i  class="fa-solid fa-circle" style={{fontSize:"8px",color:"#5b656f"}}></i>
+        <span className='font-content' style={{fontWeight:"400",fontSize:"15px",}}>Mountains</span>
+        </div>
+        <Card.Title className='font-title mt-2' style={{fontSize:"36px",fontWeight:"700"}}>Tour Name</Card.Title>
+ 
+
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <i class="fa-light fa-user-group" style={{color:"#918675"}}></i>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>8 </span>
+      <span className='font-content' style={{fontWeight:"700",fontSize:"16px",color:"#181D24"}}> guests</span>
+      </div>
+
+      <div style={{display:"flex",justifyContent:"center",gap:"10px"}}>
+      <img src='/images/calendar.svg'  alt=''/>
+      <span className='font-content' style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>12, September 2024</span>
+    
+      </div>
+
+
+
+      </div>
+
+
+        {/* <i class="fa-solid fa-heart-circle-check fa-beat" style={{color: "#d91212"}}></i> */}
+        
+      </Card.Body>
+    </Card>
+    </div>
+ 
+    </div>
+    </div>
+
+  </>
   );
 };
 

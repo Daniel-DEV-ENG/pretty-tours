@@ -26,8 +26,8 @@ const Location = () => {
   return (
     <>
       <Select
-        defaultValue={[inqueryType[0]]}
         name="colors"
+        defaultValue={[inqueryType[0]]}
         options={inqueryType}
         styles={customStyles}
         className="text-start select-borderless"

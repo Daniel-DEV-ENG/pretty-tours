@@ -1,3 +1,5 @@
+"use client"
+
 import mobileMenuItems from "@/data/mobileMenuItems";
 import { isParentActive } from "@/utilis/isMenuActive";
 import { usePathname } from "next/navigation";

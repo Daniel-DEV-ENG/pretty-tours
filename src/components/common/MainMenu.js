@@ -1,3 +1,6 @@
+"use client"
+
+
 import {
   homeItems,
   blogItems,
@@ -37,8 +40,8 @@ const MainMenu = () => {
 
 
     <ul className="ace-responsive-menu ">
-      <li className=" ">
-        <a className="list-item" href="#">
+      <li >
+        <a className="list-item" href="/">
           <span className={topMenu == "home" ? "title menuActive" : "title"}>
             Home
           </span>
@@ -70,7 +73,7 @@ const MainMenu = () => {
         </ul>
       </li>
       {/* End blog Items */}
-      <li className=" ">
+      <li >
         <a className="list-item" href="#">
           <span className={topMenu == "home" ? "title menuActive" : "title"}>
           Explore
@@ -80,7 +83,7 @@ const MainMenu = () => {
       
       </li>
       <li className=" ">
-        <a className="list-item" href="#">
+        <a className="list-item" href="/about">
           <span className={topMenu == "home" ? "title menuActive" : "title"}>
           About us
           </span>
