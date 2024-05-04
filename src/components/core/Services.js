@@ -3,7 +3,8 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
-const Services = ({title,subtitle})=> {
+const Services = ({Data})=> {
+  console.log("🚀 ~ Services ~ Data:", Data)
   // const router = useRouter();
   return(
 
@@ -15,17 +16,18 @@ const Services = ({title,subtitle})=> {
           data-aos="fade-up"
           data-aos-delay="100"
           >
-          <h3 className="Title-Section">OUR SERVICES</h3>
-          <p className="SubTittle-Section">Fusce blandit magna eget felis dapibus, ac lacinia quam faucibus. Quisque feugiat felis a quam volutpat, non scelerisque nibh scelerisque.</p>
+          <h3 className="Title-Section" data-aos="fade-up" data-aos-delay="200">OUR SERVICES</h3>
+          <p className="SubTittle-Section" data-aos="fade-down" data-aos-delay="200">{Data?.services_body} </p>
         </div>
           </div>
-        <div className="row container-image-our-services">
+        <div className="row container-image-our-services" data-aos="fade-up" data-aos-delay="200">
 <div className="col-lg-4 col-md-12 col-xs-12 ">
-<Link href="/services/vip" passHref>
+<Link href="/ToursUk" passHref>
   <div className='imageContainer'>
       <img
         priority
-        src="/images/OUR SERVICES3.png"
+        src={process.env.NEXT_PUBLIC_IMAGES + '/'+Data?.services_image_1 }
+
         className='image'
         alt="blog"
       />
@@ -53,7 +55,7 @@ className='image-services-center'
 </div>
 <div className="col-lg-4 col-md-12 col-xs-12">
 <Link href="CoachesTours" passHref>
-<div className='imageContainer'>
+<div className='imageContainer text-center'>
       <img
         priority
         src="/images/OUR SERVICES.png"
@@ -63,7 +65,7 @@ className='image-services-center'
       <div className='overlay'>
       
       </div>
-      <p className="content-image">Coaches Tours</p> 
+      <h6 className="content-image" >Our Transportation</h6> 
     </div>
    
   

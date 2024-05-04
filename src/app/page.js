@@ -14,7 +14,7 @@ export default function MainRoot() {
     <Wrapper>
 
       <Home_V1 />
-  
+
     </Wrapper>
   );
 }

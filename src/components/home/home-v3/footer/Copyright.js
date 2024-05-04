@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './footer.module.css'
 
 const getCurrentYear = () => {
   return new Date().getFullYear();
@@ -21,7 +22,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className=" white-bdrt1  pl60 pr60 copyright" >
+    <div className= {`white-bdrt1  pl60 pr60 copyright ${styles.copyright}`} >
       <div className="row">
         <div className="col-sm-6">
           <div className="text-start  text-lg-start">

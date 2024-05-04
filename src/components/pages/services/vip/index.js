@@ -1,13 +1,16 @@
+"use client"
 import React from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const VipServices = ({title,subtitle})=> {
-  // const router = useRouter();
+const VipServices = ({title,subtitle,Data})=> {
     return(
 
         
-      <section  className="our-services mb-5">
+      <section  className="our-services mb-5" data-aos="fade-down" data-aos-delay="200">
       <div className="container text-center ">
         <div
           className="row"
@@ -22,50 +25,57 @@ const VipServices = ({title,subtitle})=> {
         </div>
 </div>
 
-        <div className="row  container-image-our-services">
-<div className="col-lg-4 col-md-12 col-sm-12">
-  <div className='imageContainer'>
-      <img
-        priority
-        src="/images/OUR SERVICES3.png"
-        className='image'
-        alt="blog"
-      />
-      <div className='overlay'>
-        <h3 className='title-card'>Personalized Meet and Greet</h3>
+<div className=" container-image-our-services">
+  <Slider
+    dots={true} 
+    infinite={true} 
+    speed={500} 
+    slidesToShow={3} 
+    slidesToScroll={3} 
+    responsive={[ 
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]}
+  >
+    {Data?.map((vip,i)=>(
+<>
+    <div className="p-2" key={i}>
+      <div className="imageContainer">
+        <img
+          priority
+          src="/images/OUR SERVICES3.png"
+          className="image "
+          alt="blog"
+        />
+        <div className="overlay">
+          <h3 className="title-card">{vip?.title}</h3>
+        </div>
       </div>
     </div>
-   
-</div>
-<div className="col-lg-4 col-md-12 col-sm-12">
-<div className='imageContainer'>
-      <img
-        priority
-        src="/images/OUR SERVICES3.png"
-        className='image'
-        alt="blog"
-      />
-      <div className='overlay'>
-        <h3 className='title-card'>Personalized Meet and Greet</h3>
-      </div>
-    </div>
-</div>
-<div className="col-lg-4 col-md-12 col-sm-12">
-<div className='imageContainer'>
-      <img
-        priority
-        src="/images/OUR SERVICES3.png"
-        className='image '
-        alt="blog"
-      />
-      <div className='overlay'>
-        <h3 className='title-card'>Personalized Meet and Greet</h3>
-      </div>
-    </div>
-</div>
+</>
+
+    ))}
 
 
+ 
+  </Slider>
 </div>
+
 
 
 

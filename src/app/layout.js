@@ -8,12 +8,12 @@ import { useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "@/components/home/home-v1/Header";
 import '../style/global.css'
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
 // import '@fortawesome/fontawesome-free/css/all.min.css';
+import Header from "@/components/home/home-v1/Header";
 import MobileMenu from "@/components/common/mobile-menu";
 import Footer from "@/components/home/home-v3/footer";
 
@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
         className={`body  ${poppins.className} ${dmSans.className}`}
         cz-shortcut-listen="false"
       >
-        <div className="wrapper ovh">
+        {/* <div className="wrapper ovh">
           <Header />
 
 
@@ -61,11 +61,11 @@ export default function RootLayout({ children }) {
 
             <MobileMenu />
           </div>
-          {children}
-
           <Footer />
 
-        </div>
+        </div> */}
+          {children}
+
 
         <ScrollToTop />
       </body>

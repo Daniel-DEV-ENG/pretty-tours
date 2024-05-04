@@ -1,26 +1,48 @@
-import AboutUs from "@/components/core/AboutUs";
+"use client"
 import AboutUsHero from "@/components/pages/about/HeroAboutUs";
 import Link from "next/link";
-
-export const metadata = {
-  title: "About  || Homez - Real Estate NextJS Template",
-};
+import AboutApi from "./api/AboutApi";
+import AboutUs from "./AboutUs";
+import Header from "@/components/home/home-v1/Header";
+import MobileMenu from "@/components/common/mobile-menu";
+import Footer from "@/components/home/home-v3/footer";
+import '../../../style/global.css'
+// export const metadata = {
+//   title: "About  || Homez - Real Estate NextJS Template",
+// };
 
 const About = () => {
+
+const Data = AboutApi()
+
   return (
     <>
-       <section className="home-services-style1 p0">
+     <div className="wrapper ovh" >
+          <Header />
+
+
+          <div className="MobileMenu ">
+
+            <MobileMenu />
+          </div>
+
+        </div>
+       <section className="home-services-style1 ">
         <div className="home-style1">
           <div className="container about-container ">
-            <div className="row">
+            <div className="row" data-aos="fade-up" data-aos-delay="200">
               
-                <AboutUsHero   />
+                <AboutUsHero  Data={Data} />
             
             </div>
           </div>
           </div>
           </section>
-          <AboutUs/>
+          <div>
+
+          <AboutUs Data={Data}/>
+          </div>
+          <Footer />
     
     </>
   );

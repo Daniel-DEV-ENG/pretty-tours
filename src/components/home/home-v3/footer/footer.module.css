@@ -1,0 +1,95 @@
+@media (min-width: 100px) and (max-width: 1000px) {
+    .sectionConnect {
+        position: relative;
+        top: 40px !important;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+    }
+
+    .img{
+        position: relative;
+        bottom: 180px !important;
+        left: 40% !important;
+    }
+    .Copyright{
+        position: relative;
+        bottom: 240px !important;
+        text-align: center;
+    } 
+    .Copyright p {
+     font-size: 14px !important;
+    } 
+    .Copyright{
+        position: relative;
+        bottom: 50px !important;
+        text-align: center;
+    } 
+}
+
+
+
+@media (min-width: 100px) and (max-width: 573px) {
+    .FontTitle{
+        font-family: Rufina;
+        font-weight: 500;
+        font-size: 20px !important;
+    }
+
+    .FontContent{
+        font-family: Raleway;
+        font-weight: 400;
+        font-size: 12px !important;
+    }
+
+    .Copyright p {
+        font-size: 14px !important;
+       } 
+       .Copyright{
+           position: relative;
+           bottom: 150px !important;
+           text-align: center;
+       } 
+
+}
+@media (min-width: 500px) and (max-width: 979px) {
+    .FontTitle{
+        font-family: Rufina;
+        font-weight: 500;
+        font-size: 20px !important;
+    }
+
+    .FontContent{
+        font-family: Raleway;
+        font-weight: 400;
+        font-size: 12px !important;
+    }
+
+    .Copyright p {
+        font-size: 14px !important;
+       } 
+       .Copyright{
+           position: relative;
+           bottom: 170px !important;
+           text-align: center;
+       } 
+
+    
+
+}
+
+
+@media (min-width: 980px) and (max-width: 1900px) {
+    .copyright{
+        position: relative !important;
+      bottom: 60px !important;
+    }
+
+}
+@media (min-width: 1277px) and (max-width: 1900px) {
+    .copyright{
+        position: relative !important;
+      bottom: 20px !important;
+    }
+
+}

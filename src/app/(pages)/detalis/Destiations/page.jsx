@@ -2,30 +2,31 @@ import React from 'react'
  import '../detalis.css'
   import  styles from'./Destiations.module.css'
   import Accordion from 'react-bootstrap/Accordion';
+import moment from 'moment';
 
-export default function Destiations() {
+export default function Destiations({Data}) {
 
   
   return (
     <>
-    <div className={`row justify-content-between ${styles.Destiations} `}>
+    <div className={`row justify-content-between ${styles.Destiations} `} data-aos="fade-up" data-aos-delay="200">
         <div className="col-md-8">
             <div className={`${styles.DestiationsContainer} Destiations-container d-flex justify-content-between align-items-center`}>
                 <div>
                 <h3 className='font-title' style={{fontWeight:"700",fontSize:"36px",color:"#181D24"}}>Destiations</h3>
-                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>50 guests/24 Remaining</p>
+                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>{Data?.guests_count} guests/24 Remaining</p>
 
                 </div>
                 <div className={`d-flex ${styles.Check}  gap-5`}>
                     <div>
                 <h3 className='font-title' style={{fontWeight:"700",fontSize:"24px",color:"#181D24"}}>Check in</h3>
-                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>From 04:00</p>
+                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>From {moment(Data?.check_in).format('MM/DD/YYYY hh:mm')}</p>
 
                     </div>
                     <div>
 
-                <h3 className='font-title' style={{fontWeight:"700",fontSize:"24px",color:"#181D24"}}>Check in</h3>
-                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>From 04:00</p>
+                <h3 className='font-title' style={{fontWeight:"700",fontSize:"24px",color:"#181D24"}}>Check out</h3>
+                <p className='font-content'style={{fontWeight:"500",fontSize:"16px",color:"#181D24"}}>From {moment(Data?.check_out).format('MM/DD/YYYY hh:mm')}</p>
                     </div>
 
                 </div>
@@ -34,100 +35,35 @@ export default function Destiations() {
                 <h3 className='font-title ' style={{fontWeight:"700",fontSize:"36px",color:"#181D24"}}>Tour Plan</h3>
 </div>
 
+{Data?.events?.map((plan,index)=>(
+  <>
       <div className={`${styles.verticalstepper} mt-5`}>
       <div className={ `${styles.Step} d-flex gap-3`}>
-  <div className= {` ${styles.StepCount}`}>1</div>
+  <div className= {` ${styles.StepCount}`}>
+     <span>
+      {index+1}
+      </span>
+     </div>
   <div>
-    <h3 className={`${styles.StepTitle}`}>Departure</h3>
+    <h3 className={`${styles.StepTitle} `}> {plan?.title}</h3>
     <div class={`${styles.StepContent}`}>
-      <p>Qui tempore voluptate qui quia commodi rem praesentium alias et voluptates officia sed molestiae sint et voluptas quos. Qui harum repudiandae galisum dolorem</p>
+      <p class={`${styles.Description} `}>{plan?.description}</p>
 
-      <div className="d-flex gap-4">
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
+      <div className="d-flex gap-4 ">
+        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> {plan?.accommodation} Star Accommodation</span>
+        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> {plan?.meals} Star Accommodation</span>
       </div>
     </div>
   </div>
 </div>
   </div>
+  
+  </>
+))}
 
 
-      <div class="vertical-stepper mt-5">
-      <div className={ `${styles.Step} d-flex gap-3`}>
-  <div className= {` ${styles.StepCount}`}>2</div>
-  <div>
-    <h3 className={`${styles.StepTitle}`}>Visiting Zurich, Geneva and Zermatt</h3>
-    <div class={`${styles.StepContent}`}>
-      <p>Qui tempore voluptate qui quia commodi rem praesentium alias et voluptates officia sed molestiae sint et voluptas quos. Qui harum repudiandae galisum dolorem</p>
-
-      <div className="d-flex gap-4">
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-      </div>
-      <div class="step-data step-count-border">
-              </div>
-    </div>
-  </div>
-</div>
-  </div>
 
 
-      <div class="vertical-stepper mt-5">
-      <div className={ `${styles.Step} d-flex gap-3`}>
-  <div className= {` ${styles.StepCount}`}>3</div>
-  <div>
-    <h3 className={`${styles.StepTitle}`}>Rest</h3>
-    <div class={`${styles.StepContent}`}>
-      <p>Qui tempore voluptate qui quia commodi rem praesentium alias et voluptates officia sed molestiae sint et voluptas quos. Qui harum repudiandae galisum dolorem</p>
-
-      <div className="d-flex gap-4">
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-      </div>
-      <div class="step-data step-count-border">
-              </div>
-    </div>
-  </div>
-</div>
-  </div>
-
-
-      <div class="vertical-stepper mt-5">
-      <div className={ `${styles.Step} d-flex gap-3`}>
-  <div className= {` ${styles.StepCount}`}>4</div>
-  <div>
-    <h3 className={`${styles.StepTitle}`}>Historical Tour</h3>
-    <div class={`${styles.StepContent}`}>
-      <p>Qui tempore voluptate qui quia commodi rem praesentium alias et voluptates officia sed molestiae sint et voluptas quos. Qui harum repudiandae galisum dolorem</p>
-
-      <div className="d-flex gap-4">
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-      </div>
-      
-    </div>
-  </div>
-</div>
-  </div>
-
-
-      <div class="vertical-stepper mt-5">
-      <div className={ `${styles.Step} d-flex gap-3`}>
-  <div className= {` ${styles.StepCount}`}>5</div>
-  <div>
-    <h3 className={`${styles.StepTitle}`}>Return</h3>
-    <div class={`${styles.StepContent}`}>
-      <p>Qui tempore voluptate qui quia commodi rem praesentium alias et voluptates officia sed molestiae sint et voluptas quos. Qui harum repudiandae galisum dolorem</p>
-
-      <div className="d-flex gap-4">
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-        <span><i class="fa-solid fa-circle fa-2xs mr-1"></i> 5 Star Accommodation</span>
-      </div>
-      
-    </div>
-  </div>
-</div>
-  </div>
 
 
 

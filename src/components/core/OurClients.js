@@ -1,19 +1,19 @@
 import React from 'react';
 import Image from "next/image";
 
-const OurClients = ()=> {
+const OurClients = ({Data})=> {
 
     return(
 
        
 
-        <div className="img-Our-Clients">
+        <div className="img-Our-Clients" >
               
            
                   
              
     <div className='client-position'>
-    <h2 className="Client-Section" >See What Our Clients Say About Us</h2>
+    <h2 className="Client-Section" > {Data?.testimonials_title}</h2>
         
     </div>
           <div className="container" style={{height:700}}  >
@@ -45,7 +45,7 @@ const OurClients = ()=> {
                                 <img src="/images/apple-touch-icon-114x114.png" className=" rounded-circle shadow-lg img-thumbnail mb-3"
                                       alt=""/>
                                       </div>
-                              <p class="font-content mx-auto">Vel officiis dolor ea illo aut eligendi ullam non laudantium magnam et recusandae molestiae sit iure unde aut voluptate quaerat. Id sunt provident quo possimus impedit vel doloremque obcaecati qui ullam consectetur et ipsum omnis.</p>
+                              <p class="font-content mx-auto">Vel officiis doslor ea illo aut eligendi ullam non laudantium magnam et recusandae molestiae sit iure unde aut voluptate quaerat. Id sunt provident quo possimus impedit vel doloremque obcaecati qui ullam consectetur et ipsum omnis.</p>
                               <h3 className="font-content"> Christine Beckam - Designer</h3>
                           </div>
                       </div>

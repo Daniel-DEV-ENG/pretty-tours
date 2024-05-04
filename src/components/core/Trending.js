@@ -1,15 +1,15 @@
 import React from 'react';
 import FeaturedListings from "@/components/home/home-v1/FeatuerdListings";
-export default function Trending (){
+export default function Trending ({Data}){
 
     return(
 
         <section id="explore-property" className="pb90 pb90-xs pb30-md ">
         <div className="container">
 
-          <div className="w-100 text-center">
-    <h1 className="Title-Section" style={{marginBottom:"40px"}}>Our Trending Tour Packages</h1>
-    <p className="SubTittle-Section"> Curabitur efficitur ante vel mi bibendum, et maximus nisl ultricies. Morbi nec tempus dui, sit amet facilisis nisl. Ut vel urna quis urna tristique tempus. Etiam lobortis est at mauris eleifend, id tempor purus ultricies.</p>
+          <div className="w-100 text-center " data-aos="fade-up" data-aos-delay="200">
+    <h1 className="Title-Section" style={{marginBottom:"40px"}}>{Data?.tours_title}</h1>
+    <p className="SubTittle-Section"> {Data?.tours_body}</p>
           </div>
        
         </div>

@@ -89,7 +89,7 @@
 
 export const Services = [
   { href: "/services/vip", label: "VIP Servics" },
-  { href: "/Tours UK", label: "Tours UK" },
+  { href: "/ToursUk", label: "Tours UK" },
   { href: "/CoachesTours", label: "Coaches Tours" },
 ];
 

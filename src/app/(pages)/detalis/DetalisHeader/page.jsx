@@ -2,18 +2,21 @@ import React from 'react'
 import styles from './DetalisHeader.module.css'
 
 import '../detalis.css'
+import moment from 'moment'
 
-export default function DetalisHeader() {
+export default function DetalisHeader({Data}) {
+
+
   return (
     <>
-            <div className="IMG">
+            <div className="IMG" >
 
           <div className="img-container  ">
     <div  className={` container  ${styles.container}`}>
-    <div className="row justify-content-center align-items-center  ">
+    <div className="row justify-content-center align-items-center  " data-aos="fade-left" data-aos-delay="200">
     <div className="row tour-name  justify-content-between align-items-center ml-2">
             <div className='col-md-6 tour-name'>
-            <h1 className='font-title' style={{fontSize:"52px",fontWeight:"700",color:"#fff"}}>Tour Name</h1>
+            <h1 className='font-title ' style={{fontSize:"48px",fontWeight:"700",color:"#fff"}}>{Data?.title} </h1>
 
             </div>
             <div className=' col-md-6 text-end d-inline'>
@@ -77,7 +80,7 @@ export default function DetalisHeader() {
 
 <div className="IMG">
 
-<div className="img-container  ">
+<div className="img-container  " data-aos="fade-up" data-aos-delay="200">
 <div className={` ${styles.containerMobile}`}>
 <div className="row justify-content-center align-items-center  ">
 

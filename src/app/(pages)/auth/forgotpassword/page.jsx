@@ -23,12 +23,12 @@ const ForgotPassword = () => {
     <>
       <section className={ `${styles.LoginSection}`}>
        
-       <div className="container">
+       <div className="container ">
 
 
  <div className="row justify-content-center align-items-center" data-aos="fade-left" data-aos-delay="300">
          
-       <Link className="" href="/auth/login" style={{textDecoration: "none", color: "#112211",position:"relative",top:"32px"}}>
+       <Link className={`${styles.Link}`} href="/auth/login" style={{textDecoration: "none", color: "#112211",position:"relative",top:"62px",left:"0px"}}>
   <i className="fa fa-arrow-left fade-Up" aria-hidden="true"></i> Back to login
 </Link>        
            <div className="col-lg-6 mt-5">

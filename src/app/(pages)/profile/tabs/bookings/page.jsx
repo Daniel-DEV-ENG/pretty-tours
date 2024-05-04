@@ -1,278 +1,92 @@
 import React from 'react'
 import styles from './bookings.module.css'
+import GetBooking from '../../api/getBooking'
 
 export default function Bookings() {
-  return (
-   <>
-    <div className={`${styles.Bookings} d-flex justify-content-between`}>
-        <div className=" d-flex align-items-center gap-4">
-            <div className={` ${styles.Border}`}></div>
-            <div className='d-flex flex-column'>
-                <span className={`${styles.City}`}>Newark(EWR)</span>
-                <span className={`${styles.Time}`}>12:00 pm</span>
-            </div>
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div className="d-flex flex-column">
+    const Data = GetBooking()
 
-                <span className={`${styles.Date}`}>Date</span>
-                <span className={`${styles.DateValue}`}>12-11-22</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center '>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-clock"></i>
-            </div>
-            <div className="d-flex flex-column">
+    console.log("🚀 ~ Bookings ~ Data:", Data)
+    return (
+        <>
+            {Data?.map((book, index) =>
+            (
+                <div className={`${styles.Bookings} d-flex justify-content-between`} key={index}>
+                    <div className=" d-flex align-items-center gap-4">
+                        <div className={` ${styles.Border}`}></div>
+                        <div className='d-flex flex-column'>
+                            <span className={`${styles.City}`}>{book.name}</span>
+                            <span className={`${styles.Time}`}>{book.net_profit}</span>
+                        </div>
+                    </div>
+                    <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
+                        <div className='d-flex align-items-center'>
+                            <div className={`${styles.Icon}`}>
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Destination</span>
-                <span className={`${styles.DateValue}`}>London</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-user-group"></i>
-            </div>
-            <div className="d-flex flex-column">
+                                <span className={`${styles.Date}`}>Date</span>
+                                <span className={`${styles.DateValue}`}>{book.date}</span>
+                            </div>
+                        </div>
+                        <div className='d-flex align-items-center '>
+                            <div className={`${styles.Icon}`}>
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Guests</span>
-                <span className={`${styles.DateValue}`}>5</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-dollar-sign"></i>
-            </div>
-            <div className="d-flex flex-column">
+                                <span className={`${styles.Date}`}>Destination</span>
+                                <span className={`${styles.DateValue}`}>{book.destination}</span>
+                            </div>
+                        </div>
 
-                <span className={`${styles.Date}`}>Price</span>
-                <span className={`${styles.DateValue}`}>$50</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className=" d-flex  align-items-center gap-4 ">
-            <div className="">
-            <button className={`${styles.Detalis}`}>Details</button>
+                    </div>
+                    <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
+                        <div className='d-flex align-items-center'>
+                            <div className={`${styles.Icon}`}>
+                                <i class="fa-light fa-user-group"></i>
+                            </div>
+                            <div className="d-flex flex-column">
 
-            </div>
-            <div className="">
-                
-            <button className={`${styles.BtnDetalis}`}>
-            <i class="fa-thin fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </div>
-    <div className={`${styles.Bookings} d-flex justify-content-between mt-4`}>
-        <div className=" d-flex align-items-center gap-4">
-            <div className={` ${styles.Border}`}></div>
-            <div className='d-flex flex-column'>
-                <span className={`${styles.City}`}>Newark(EWR)</span>
-                <span className={`${styles.Time}`}>12:00 pm</span>
-            </div>
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div className="d-flex flex-column">
+                                <span className={`${styles.Date}`}>Guests</span>
+                                <span className={`${styles.DateValue}`}>{book.guests_count}</span>
+                            </div>
+                        </div>
+                        <div className='d-flex align-items-center'>
+                            <div className={`${styles.Icon}`}>
+                                <i class="fa-light fa-dollar-sign"></i>
+                            </div>
+                            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Date</span>
-                <span className={`${styles.DateValue}`}>12-11-22</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center '>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-clock"></i>
-            </div>
-            <div className="d-flex flex-column">
+                                <span className={`${styles.Date}`}>Price</span>
+                                <span className={`${styles.DateValue}`}>{book.price_per_guest}</span>
+                            </div>
+                        </div>
 
-                <span className={`${styles.Date}`}>Destination</span>
-                <span className={`${styles.DateValue}`}>London</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-user-group"></i>
-            </div>
-            <div className="d-flex flex-column">
+                    </div>
+                    <div className=" d-flex  align-items-center gap-4 ">
+                        <div className="">
+                            <button className={`${styles.Detalis}`}>Details</button>
 
-                <span className={`${styles.Date}`}>Guests</span>
-                <span className={`${styles.DateValue}`}>5</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-dollar-sign"></i>
-            </div>
-            <div className="d-flex flex-column">
+                        </div>
+                        <div className="">
 
-                <span className={`${styles.Date}`}>Price</span>
-                <span className={`${styles.DateValue}`}>$50</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className=" d-flex  align-items-center gap-4 ">
-            <div className="">
-            <button className={`${styles.Detalis}`}>Details</button>
+                            <button className={`${styles.BtnDetalis}`}>
+                                <i class="fa-thin fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )
 
-            </div>
-            <div className="">
-                
-            <button className={`${styles.BtnDetalis}`}>
-            <i class="fa-thin fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </div>
-    <div className={`${styles.Bookings} d-flex justify-content-between mt-4`}>
-        <div className=" d-flex align-items-center gap-4">
-            <div className={` ${styles.Border}`}></div>
-            <div className='d-flex flex-column'>
-                <span className={`${styles.City}`}>Newark(EWR)</span>
-                <span className={`${styles.Time}`}>12:00 pm</span>
-            </div>
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Date</span>
-                <span className={`${styles.DateValue}`}>12-11-22</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center '>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-clock"></i>
-            </div>
-            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Destination</span>
-                <span className={`${styles.DateValue}`}>London</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-user-group"></i>
-            </div>
-            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Guests</span>
-                <span className={`${styles.DateValue}`}>5</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-dollar-sign"></i>
-            </div>
-            <div className="d-flex flex-column">
+            )
 
-                <span className={`${styles.Date}`}>Price</span>
-                <span className={`${styles.DateValue}`}>$50</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className=" d-flex  align-items-center gap-4 ">
-            <div className="">
-            <button className={`${styles.Detalis}`}>Details</button>
+            }
 
-            </div>
-            <div className="">
-                
-            <button className={`${styles.BtnDetalis}`}>
-            <i class="fa-thin fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </div>
-    <div className={`${styles.Bookings} d-flex justify-content-between mt-4`}>
-        <div className=" d-flex align-items-center gap-4">
-            <div className={` ${styles.Border}`}></div>
-            <div className='d-flex flex-column'>
-                <span className={`${styles.City}`}>Newark(EWR)</span>
-                <span className={`${styles.Time}`}>12:00 pm</span>
-            </div>
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-calendar-days"></i>
-            </div>
-            <div className="d-flex flex-column">
 
-                <span className={`${styles.Date}`}>Date</span>
-                <span className={`${styles.DateValue}`}>12-11-22</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center '>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-solid fa-clock"></i>
-            </div>
-            <div className="d-flex flex-column">
-
-                <span className={`${styles.Date}`}>Destination</span>
-                <span className={`${styles.DateValue}`}>London</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className={`${styles.SecOne}  d-flex flex-column align-items-center gap-1`}>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-user-group"></i>
-            </div>
-            <div className="d-flex flex-column">
-
-                <span className={`${styles.Date}`}>Guests</span>
-                <span className={`${styles.DateValue}`}>5</span>
-            </div>
-            </div>
-            <div className='d-flex align-items-center'>
-            <div className={`${styles.Icon}`}>
-            <i class="fa-light fa-dollar-sign"></i>
-            </div>
-            <div className="d-flex flex-column">
-
-                <span className={`${styles.Date}`}>Price</span>
-                <span className={`${styles.DateValue}`}>$50</span>
-            </div>
-            </div>
-         
-        </div>
-        <div className=" d-flex  align-items-center gap-4 ">
-            <div className="">
-            <button className={`${styles.Detalis}`}>Details</button>
-
-            </div>
-            <div className="">
-                
-            <button className={`${styles.BtnDetalis}`}>
-            <i class="fa-thin fa-chevron-right"></i>
-            </button>
-            </div>
-        </div>
-    </div>
-    
-   </>
-  )
+        </>
+    )
 }

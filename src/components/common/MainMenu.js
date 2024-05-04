@@ -1,6 +1,5 @@
 "use client"
 
-
 import {
   homeItems,
   blogItems,
@@ -10,58 +9,44 @@ import {
   Services
 } from "@/data/navItems";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import "../../style/global.css"
+import { useState } from "react";
 
 const MainMenu = () => {
-  const pathname = usePathname();
-  const [topMenu, setTopMenu] = useState("");
-  const [submenu, setSubmenu] = useState("");
-  const [activeLink, setActiveLink] = useState("");
+  const [activeItem, setActiveItem] = useState("");
+  console.log("🚀 ~ MainMenu ~ activeItem:", activeItem)
 
-  useEffect(() => {
- 
-   
-    Services.forEach((elm) => {
-      if (elm.href.split("/")[1] == pathname.split("/")[1]) {
-        setTopMenu("pages");
-      }
-    });
-
- 
-  }, [pathname]);
-
-  const handleActive = (link) => {
-    if (link.split("/")[1] == pathname.split("/")[1]) {
+  const handleActive = () => {
       return "menuActive";
-    }
   };
+  const handleClick = (e) => {
+    setActiveItem(e.target.innerText);
+  };
+  
+
   return (
 
 
     <ul className="ace-responsive-menu ">
-      <li >
-        <a className="list-item" href="/">
-          <span className={topMenu == "home" ? "title menuActive" : "title"}>
-            Home
-          </span>
-        </a>
-        {/* Level Two*/}
-      
-      </li>
-      {/* End homeItems */}
+<li className={`hov`} onClick={handleClick}>
+  <Link   className="list-item" href="/" >
+    <span>
+      Home
+    </span>
+  </Link>
+  <div  className={`line`}></div>
+</li>
 
-    
 
    
 
       <li className="visible_list dropitem">
-        <a className="list-item" href="#">
-          <span className={topMenu == "blog" ? "title menuActive" : "title"}>
+        <Link className="list-item" href="#">
+          <span className={  "title menuActive" }>
           Services
           </span>
           <span className="arrow"></span>
-        </a>
+        </Link>
         <ul className="sub-menu">
           {Services.map((item, index) => (
             <li key={index}>
@@ -72,26 +57,23 @@ const MainMenu = () => {
           ))}
         </ul>
       </li>
-      {/* End blog Items */}
-      <li >
-        <a className="list-item" href="#">
-          <span className={topMenu == "home" ? "title menuActive" : "title"}>
+      <li className="hov">
+        <Link className="list-item" href="/ToursUk">
+          <span className={"title menuActive" }>
           Explore
           </span>
-        </a>
-        {/* Level Two*/}
-      
+        </Link>
+          <div className="line"></div>
       </li>
-      <li className=" ">
-        <a className="list-item" href="/about">
-          <span className={topMenu == "home" ? "title menuActive" : "title"}>
+      <li className=" hov">
+        <Link className="list-item" href="/about">
+          <span className={"title menuActive"}>
           About us
           </span>
-        </a>
-        {/* Level Two*/}
-      
+        </Link>
+        <div className="line"></div>
+
       </li>
-      {/* End pages Items */}
     </ul>
 
  

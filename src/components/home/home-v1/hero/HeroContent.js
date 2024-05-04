@@ -5,7 +5,7 @@ import InputRange from "react-input-range";
 import "react-input-range/lib/css/index.css";
 import LookingFor from "../../home-v10/filter-with-property/LookingFor";
 import Location from "../../home-v10/filter-with-property/Location";
-
+import styles from './Fillter.module.css'
 const HeroContent = () => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState("buy");
@@ -24,6 +24,7 @@ const HeroContent = () => {
   };
 
   return (
+    <>
     <div className="filterContainer animate-up-2">
     
 
@@ -58,7 +59,7 @@ const HeroContent = () => {
 
                 
 
-                <div className="col-md-4 col-xl-2">
+                <div className="col-md-4 col-xl-2 ">
                   <div className="py-2">
                   <button
                       className=" search-btn d-flex justify-content-end align-items-center gap-2"
@@ -71,7 +72,6 @@ const HeroContent = () => {
                     </button>
                     
                   </div>
-
                       
                 </div>
               </div>
@@ -79,6 +79,14 @@ const HeroContent = () => {
           </div>
       </div>
     </div>
+    <div className={`mt-5 text-start`}>
+      <button className={` ${styles.SearchBtn}`}>
+      ADD  Filters
+      </button>
+    </div>
+    
+    </>
+
   );
 };
 

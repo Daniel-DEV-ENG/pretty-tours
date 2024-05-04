@@ -3199,12 +3199,20 @@ li {
 .home-banner-style1 {
     height: 100vh;
     border-radius: 0px 0px 150px 0px;
-background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.10) 100%), url(../images/Image-ban.jpg) lightgray -0.208px -88px / 100.23% 124.026% no-repeat;
+// background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.10) 100%), url(../images/Image-ban.jpg) lightgray -0.208px -88px / 100.23% 124.026% no-repeat;
 }
 .home-services-style1 {
     height: 100vh;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 53.73%), linear-gradient(0deg, #FFF 0%, rgba(255, 255, 255, 0) 64.5%), url(../images/image.png) lightgray 0.914px -55.19px/101.077% 124.026% no-repeat;
 }
+
+
+.Tours-services-style1{
+    height: 70vh;
+
+}
+
+
 .home-services-style1 .home-style1{
     -webkit-box-align: center;
     -ms-flex-align: center;

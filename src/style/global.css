@@ -144,9 +144,18 @@ background: var(--Gold-Gold-light, #F5E9D6);
   .about-container{
     height: 100vh;
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: end;
   }
+
+  .Tours-container{
+display: flex;
+justify-content: center;
+
+  }
+
+
+
 .border-contactus{
   border-radius: 8px 8px 80px 8px;
    max-width: 100%;
@@ -286,6 +295,16 @@ background: #fff;
   position: relative;
 }
 
+.Hero {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+
+
 .image {
   display: block;
   max-width: 100%;
@@ -350,13 +369,15 @@ background: #fff;
 }
 
 .content-image{
+  width: auto;
   position: absolute;
-  bottom: 0.5px;
-  left: 22%;
+  bottom: 10%;
   font-family: Rufina;
   font-weight: 400;
-  font-size: 50px;
+  font-size: 28px;
   color: #fff;
+  left: 50%;
+  transform: translate(-50%, 50%);
 }
 
 /* end styling OUR SERVICES */
@@ -438,12 +459,31 @@ background: #fff;
 
 .we-strive{
   width: 646px;
-  height: 79px;
+  height: auto;
   border-radius: 3px;
   padding: 26px 16.3px 26px 16.3px;
   background-color: var(--main-color-bg);
   opacity: 0.7;
 }
+
+.we-strive h4{
+font-size: 19px;
+}
+
+.we-striveAbout{
+  width: 546px;
+  height: auto;
+  border-radius: 3px;
+  padding: 26px 16.3px 26px 16.3px;
+  background-color: var(--main-color-bg);
+  opacity: 0.7;
+}
+.we-striveAbout h4{
+  font-size: 19px;
+
+}
+
+
 
 
 .Our-Clients{
@@ -665,7 +705,6 @@ border: none;
 .section-footer{
   background-color: #DFE3E7;
   height: 60vh !important;
-  overflow: hidden;
 }
 
 
@@ -734,24 +773,114 @@ border: none;
 }
 
 .border-circle {
-  width: 40px; 
-  height: 40px; 
+  width: 33px; 
+  height: 33px; 
   border-radius: 50%; 
   overflow: hidden; 
   border: 2px solid #fff;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .sectionConnect{
   position: relative;
-  top: 170px;
+  top: 120px;
+}
+
+.copyright{
+    position: relative;
+  bottom: 40px;
 }
 
 .font-title-Apps{
   font-weight: 600 !important;
   font-family: Rufina;
+}
+
+.title.menuActive {
+  color: #fff !important;
+  transition: all 1s ease-in-out;
+}
+
+
+.hov {
+  position: relative;
+}
+
+.hov .line {
+  position: absolute;
+  bottom: -5px; 
+  left: 23%;
+  width: 0;
+  height: 2px;
+  background: #fff; 
+  transition: width 0.3s ease;
+}
+
+.hov:hover .line,
+.hov.active .line {
+  width: 50%;
+}
+
+
+.active  {
+  position: relative;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #fff; 
+  transition: width 0.3s ease;
+}
+
+.dd{
+  width: 10px;
+  height: 4px;
+  background-color: red;
+  color: red;
+}
+
+.article, aside, figcaption, figure, footer, header, hgroup, main, nav, section{
+  background-color: #fff;
+}
+
+.Slider{
+  height: 100vh;
+  width: 100%;
+}
+
+.Slider img{
+  height: 100vh;
+  width: 100%;
+  border-radius: 0px 0px 190px 0px !important;
+}
+
+.hero-content{
+  color: var(--Primary-Gold-Dark, #5B656F);
+  text-align: center;
+  font-family: Raleway;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 1.68px;
+  text-transform: uppercase;
+  
+}
+
+.Pretty-Tours{
+  color: var(--White, #FFF);
+  text-align: center;
+  text-shadow: 0px 4.977px 49.771px rgba(0, 0, 0, 0.35);
+  font-family: Rufina;
+  font-size: 84px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px; /* 118.182% */
+  letter-spacing: -1px;
+  text-transform: uppercase;
+
 }
 
 
@@ -763,6 +892,9 @@ border: none;
   /* تنسيق للأجهزة اللوحية والحواسيب المحمولة */
 
   @media only screen and (min-width: 768px) and (max-width: 1199px) {
+
+  
+
     .border-contactus{
       border-radius: 8px 8px 80px 8px;
        max-width: 480px;
@@ -997,12 +1129,17 @@ text-align: center;
     
     .we-strive{
       width: 100%;
-      height: 79px;
+      height: 69px;
       border-radius: 3px;
       padding: 12px;
       background-color: var(--main-color-bg);
       opacity: 0.7;
-  
+      font-size: 12px !important;
+      margin-top: 12px;
+    }
+    .we-strive h4{
+     
+      font-size: 16px !important;
     }
 
     .Our-Clients{
@@ -1043,6 +1180,32 @@ text-align: center;
     .btn-sendd{
       width: 100%;
     }
+
+    .hero-content{
+      color: var(--Primary-Gold-Dark, #5B656F);
+      text-align: center;
+      font-family: Raleway;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      letter-spacing: 1.68px;
+      text-transform: uppercase;
+    }
+
+    .Pretty-Tours{
+      color: var(--White, #FFF);
+      text-align: center;
+      text-shadow: 0px 4.977px 49.771px rgba(0, 0, 0, 0.35);
+      font-family: Rufina;
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 52px; /* 118.182% */
+      letter-spacing: -1px;
+      text-transform: uppercase;
+   
+   }
 
   }
 
@@ -1154,11 +1317,16 @@ text-align: center;
   
   
   }
-    .home-banner-style1 {
-      height: 100vh;
+    .home-banner-stylee {
+      height: 100vh !important;
       border-radius: 0px 0px 80px 0px;
+      background-position: center;
+      background-size: cover;
 background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.10) 100%), url(../../public/images/Image-ban.jpg) lightgray -166.473px -55px / 301.816% 108.885% no-repeat;
   }
+
+
+
 
         .MobileMenu{
           position: fixed;
@@ -1207,7 +1375,7 @@ background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.
       color: var(--Primary-Gold-Dark, #5B656F);
       text-align: center;
       font-family: Raleway;
-      font-size: 14px;
+      font-size: 10px;
       font-style: normal;
       font-weight: 500;
       line-height: normal;
@@ -1220,7 +1388,7 @@ background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.
       text-align: center;
       text-shadow: 0px 4.977px 49.771px rgba(0, 0, 0, 0.35);
       font-family: Rufina;
-      font-size: 44px;
+      font-size: 34px;
       font-style: normal;
       font-weight: 700;
       line-height: 52px; /* 118.182% */

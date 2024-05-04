@@ -1,5 +1,6 @@
 .LoginSection{
     background-color: #F6F7F7;
+    padding: 23px;
 }
 
 
@@ -30,3 +31,18 @@
     color: #fff ;
     text-decoration: none;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    .ImgAuth{
+      display: none;
+    }
+  }
+  
+  @media only screen and (min-width: 200px) and (max-width: 768px) {
+    .ImgAuth{
+      display: none;
+    }
+   
+  
+  }
