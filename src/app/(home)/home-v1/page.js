@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import Hero from "@/components/home/home-v1/hero";
@@ -22,6 +23,7 @@ import "slick-carousel/slick/slick-theme.css";
 const Home_V1 = () => {
 
   const Data = HomeAPI();
+  console.log("🚀 ~ Data:", Data)
 
   return (
     <>
@@ -69,27 +71,21 @@ const Home_V1 = () => {
     }
   ]}
 >
-  <div>
+  {Data?.hero_image_links?.map((val,i)=>(<>
+  
+  <div key={i}>
     <div className="imageContainer">
       <img
-        src="/images/image-ban.jpg"
-        className=" w-100 "
+        src={process.env.NEXT_PUBLIC_IMAGES  + val}
+        className=" w-100   "
         alt="blog"
         style={{borderRadius:"0px 0px 80px 0px"}}
       />
     </div>
   </div>
 
-  <div>
-    <div className="imageContainer">
-      <img
-        src="/images/OUR SERVICES3.png"
-        className=" w-100 "
-        alt="blog"
-        style={{borderRadius:"0px 0px 80px 0px"}}
-      />
-    </div>
-  </div>
+ 
+  </>))}
 </Slider>
 
       <div className="Hero" >
@@ -105,6 +101,7 @@ const Home_V1 = () => {
   <WorkWithUs Data={Data}/>  
      <AboutUs Data={Data}/>
     <OurClients Data={Data}/>
+
     <Footer />
 
     </>

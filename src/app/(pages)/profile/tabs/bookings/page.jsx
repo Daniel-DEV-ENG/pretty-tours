@@ -5,7 +5,6 @@ import GetBooking from '../../api/getBooking'
 export default function Bookings() {
     const Data = GetBooking()
 
-    console.log("🚀 ~ Bookings ~ Data:", Data)
     return (
         <>
             {Data?.map((book, index) =>

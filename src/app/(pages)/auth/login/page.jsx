@@ -33,9 +33,7 @@ const Login = () => {
 
       }
 
-      console.log('Response:', response.data);
     } catch (error) {
-      console.error('Error submitting data:', error);
       alert('error submitting data')
     }
   };

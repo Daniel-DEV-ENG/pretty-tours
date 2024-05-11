@@ -11,7 +11,6 @@ import { DateRange } from 'react-date-range';
 import { useForm, Controller } from 'react-hook-form';
 
 export default function BookTourVip({Data}) {
-console.log("🚀 ~ BookTourVip ~ Data:", Data.days)
 
   const [state, setState] = useState([
     {
@@ -21,12 +20,10 @@ console.log("🚀 ~ BookTourVip ~ Data:", Data.days)
     }
   ]);
 
-console.log(state)
   const { control, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     // Handle form submission here
-    console.log(data);
     const formData = new FormData()
     
   };

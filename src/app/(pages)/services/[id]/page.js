@@ -17,7 +17,6 @@ const PricingPlan = () => {
 
 
 const Data = ServicesApi()
-console.log("🚀 ~ PricingPlan ~ Data:", Data)
 
   return (
     <>

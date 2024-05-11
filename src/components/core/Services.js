@@ -4,8 +4,6 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const Services = ({Data})=> {
-  console.log("🚀 ~ Services ~ Data:", Data)
-  // const router = useRouter();
   return(
 
         
@@ -26,7 +24,7 @@ const Services = ({Data})=> {
   <div className='imageContainer'>
       <img
         priority
-        src={process.env.NEXT_PUBLIC_IMAGES + '/'+Data?.services_image_1 }
+        src={process.env.NEXT_PUBLIC_IMAGES + Data?.services_image_1 }
 
         className='image'
         alt="blog"
@@ -42,7 +40,7 @@ const Services = ({Data})=> {
   <div className='imageContainer'>
   <img
     priority
-    src="/images/OUR SERVICES2.png"
+    src={process.env.NEXT_PUBLIC_IMAGES + Data?.services_image_2 }
     alt="blog"
 className='image-services-center'
   />
@@ -58,7 +56,7 @@ className='image-services-center'
 <div className='imageContainer text-center'>
       <img
         priority
-        src="/images/OUR SERVICES.png"
+        src={process.env.NEXT_PUBLIC_IMAGES + Data?.services_image_3 }
         className='image'
         alt="blog"
       />

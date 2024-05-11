@@ -81,7 +81,7 @@ const Data = ContactApi()
 
         </div>
 
-        <div className={`${styles.Copyright}`} style={{ position: 'relative', bottom: '50px' }} >
+        <div className={`${styles.Copyright}`} style={{ position: 'relative', bottom: '115px' }} >
 
         <Copyright />
         </div>

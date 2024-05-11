@@ -13,9 +13,11 @@ const ToursCard = ({Data}) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true, 
+  autoplaySpeed: 4000, 
     appendDots: dots => (
       <div>
             <div style={{ position: 'relative',bottom:"50px" }}>
@@ -31,23 +33,24 @@ const ToursCard = ({Data}) => {
 
     <div className='row '>
 
+      {console.log(Data)}
     {Data?.map((item,index)=> (
 <>
-<div className="col-lg-4 col-md-6 col-xs-12 mt-5" data-aos="fade-up" data-aos-delay="200">
-<Link href={`/detalis/${item?.id}`} target='_blank' style={{textDecoration:"none"}}>
-    <Card className='Our-Trending-card' style={{ overflow:"hidden",borderRadius:"8px 8px 30px 8px",position:"relative",maxWidth:"370px",height:"auto",top:'4%'   }}>
-      <Slider  {...settings}>
-        <div>
-          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide1" />
-        </div>
-        <div>
-          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/home/home-1.jpg" alt="slide2" />
-        </div>
-        <div>
-          <Card.Img style={{ height: "356px", borderRadius: "0px 0px 40px 0px" }} src="/images/image-ban.jpg" alt="slide3" />
-        </div>
 
-      </Slider>
+<div  className="col-lg-4 col-md-6 col-xs-12 mt-5" data-aos="fade-up" data-aos-delay="200">
+<Link href={`/detalis/${item?.id}`}  style={{textDecoration:"none"}}>
+    <Card  className='Our-Trending-card' style={{ overflow:"hidden",borderRadius:"8px 8px 30px 8px",position:"relative",maxWidth:"370px",height:"auto",top:'4%'   }}>
+    {item?.image_links?.length === 1 ? (
+          <Card.Img style={{ height: "300px", borderRadius: "0px 0px 40px 0px" }} src={process.env.NEXT_PUBLIC_IMAGES + item?.image_links[0]} alt="0" />
+        ) : (
+          <Slider {...settings}>
+            {item?.image_links?.map((image,i) => (
+              <div key={i}>
+                <Card.Img style={{ height: "300px", borderRadius: "0px 0px 40px 0px" }} src={process.env.NEXT_PUBLIC_IMAGES + image} alt={i} />
+              </div>
+            ))}
+          </Slider>
+        )}
       <div style={{position:"absolute",left:"85%",top:"30px",color:"#fff"}} >
       <i style={{opacity:"0.8"}} class="fa-light fa-heart fa-xl pointer"></i>
        </div>

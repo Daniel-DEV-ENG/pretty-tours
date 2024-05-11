@@ -21,9 +21,9 @@ const AppWidget = () => {
   return (
     <div className="app-widget text-center">
       <h3 className={` mb20 font-title-Apps  text-start font-title ${styles.FontTitle}`}>Apps</h3>
-      <div className="row mb-4 mb-lg-5">
+      <div className="row mb-4 mb-lg-5 ">
         {appList.map((app, index) => (
-          <div className="col-auto" key={index}>
+          <div className={`col-auto  ${styles.AppWidget}`} key={index}>
             <a  className={`${styles.icons}`} href={app.link} target="_blank" rel="noopener noreferrer">
               <div className="app-info d-flex align-items-center mb10">
                 <div className="flex-shrink-0">

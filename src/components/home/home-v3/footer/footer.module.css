@@ -34,6 +34,14 @@
         font-family: Rufina;
         font-weight: 500;
         font-size: 20px !important;
+        text-align: center !important;
+        margin-top: 30px;
+    }
+
+    .AppWidget{
+        text-align: center !important;
+        position: relative;
+        left: 60px !important;
     }
 
     .FontContent{
@@ -48,8 +56,11 @@
        .Copyright{
            position: relative;
            bottom: 150px !important;
-           text-align: center;
+           text-align: center !important;
        } 
+       .SectionFooter{
+        height: auto !important;
+       }
 
 }
 @media (min-width: 500px) and (max-width: 979px) {
@@ -89,7 +100,8 @@
 @media (min-width: 1277px) and (max-width: 1900px) {
     .copyright{
         position: relative !important;
-      bottom: 20px !important;
+      bottom: 30px !important;
     }
+    
 
 }

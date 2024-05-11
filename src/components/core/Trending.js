@@ -16,7 +16,7 @@ export default function Trending ({Data}){
 
         
 
-      <FeaturedListings style={{marginTop:'32px'}} />
+      <FeaturedListings Data={Data} style={{marginTop:'32px'}} />
 
       </section>
 

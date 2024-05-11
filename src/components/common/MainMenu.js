@@ -14,7 +14,6 @@ import { useState } from "react";
 
 const MainMenu = () => {
   const [activeItem, setActiveItem] = useState("");
-  console.log("🚀 ~ MainMenu ~ activeItem:", activeItem)
 
   const handleActive = () => {
       return "menuActive";

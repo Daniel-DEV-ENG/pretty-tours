@@ -11,7 +11,6 @@ export default function Account({ Data }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Here you can perform the logic to update the name, like making an API call
-        console.log('Name changed to:', name);
         alert(name)
         setIsEditing(false);
     };
@@ -23,18 +22,22 @@ export default function Account({ Data }) {
                     <div className="col-md-12 col-lg-12 col-xl-12 d-flex justify-content-between align-items-center">
                         <div className="name">
                             <h6 className={`${styles.Kye}`}>Name</h6>
+                            <h6 className={`${styles.Kye}`}>{name}</h6>
                             {isEditing ? (
-                                <form onSubmit={handleSubmit}>
-                                    <div className='col-md-12 col-lg-12 col-xl-12 d-flex justify-content-between align-items-center'>
+                                <form onSubmit={handleSubmit} >
+                                    <div className={`${styles.Editing}`}>
+
                                         <input
                                             type="text"
                                             value={name}
                                             onChange={handleNameChange}
                                             className={`${styles.Value}`}
                                         />
-                                        <button type="submit" className={`${styles.Btn}`}>
+
+                                        <button type="submit" className={`${styles.Btn} `}>
                                             Save
                                         </button>
+
                                     </div>
 
                                 </form>

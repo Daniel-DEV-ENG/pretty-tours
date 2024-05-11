@@ -14,7 +14,11 @@
   .bookTourHeading {
     font-size: 1.25rem;
   }
-  
+    
+  .CustomPlaceholder::placeholder {
+    color: #fff !important; 
+    opacity: 1;
+  }
   .datePicker {
     max-width: 200px;
   }

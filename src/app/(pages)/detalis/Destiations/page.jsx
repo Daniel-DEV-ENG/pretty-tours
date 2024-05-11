@@ -72,16 +72,12 @@ export default function Destiations({Data}) {
             <div className="Activeties text-center ">
                 <h1 className={`font-title Activeties-title`} >Activeties</h1>
                 <div className="text-start d-flex flex-column Activeties-content">
+                  {Data?.activities?.map((val,i)=>(
+                    
+                    <span key={i}><i className='fa-solid fa-circle fa-2xs mr-3'></i> {val?.title}</span>
+                  ))}
 
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
-                <span><i className='fa-solid fa-circle fa-2xs mr-3'></i> Swimming pool</span>
+    
             
                
                

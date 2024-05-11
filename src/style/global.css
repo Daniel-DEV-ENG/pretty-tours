@@ -507,7 +507,7 @@ mix-blend-mode: darken;
 
 .client-item{
   max-width: 700px;
-  max-height: 500px;
+  height: 300px;
   border-radius: 80px 3px 80px 3px;
   background: rgba(201, 189, 171, 0.35);
   text-align: center;
@@ -536,7 +536,7 @@ mix-blend-mode: darken;
 
 .carousel-indicators {
   position: absolute !important;
-  bottom: -2rem !important;
+  bottom: 10rem !important;
 }
 
 .carousel-indicators .active{
@@ -562,12 +562,13 @@ mix-blend-mode: darken;
 }
 
 
-.img-thumbnail{
+.img-testimonials{
   height: 120px;
   width: 120px;
   position: relative;
   bottom: 55px;
-
+  border: 5px solid #fff;
+  
 }
 
 .arrow-left {
@@ -1142,9 +1143,11 @@ text-align: center;
       font-size: 16px !important;
     }
 
-    .Our-Clients{
-      display: none;
-    }
+  
+
+   
+
+ 
 
 
     
@@ -1548,9 +1551,7 @@ background: linear-gradient(0deg, rgba(28, 33, 43, 0.10) 0%, rgba(28, 33, 43, 0.
   
 
 
-.Our-Clients{
-  display: none;
-}
+
 
 
 

@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const VipServices = ({title,subtitle,Data})=> {
+    console.log("🚀 ~ coach ~ Data:", Data)
     return(
 
         

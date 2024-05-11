@@ -10,10 +10,14 @@ import { Calendar } from 'react-date-range';
 import { DateRange } from 'react-date-range';
 import { useForm, Controller } from 'react-hook-form';
 import CalendarCO from './calendar';
+import axios from 'axios';
+import { headers } from '../../../../../next.config';
+import moment from 'moment';
+import NavigateToLogin from './modelLogin';
 
 export default function BookTour({Data}) {
-console.log("🚀 ~ BookTour ~ Data:", Data?.days)
-
+console.log("🚀 ~ BookTour ~ Data:", Data)
+const [modalIsOpen, setModalIsOpen] = useState(false);
   const [state, setState] = useState([
     {
       startDate: '2024-05-19',
@@ -24,12 +28,45 @@ console.log("🚀 ~ BookTour ~ Data:", Data?.days)
 
 console.log(state)
   const { control, handleSubmit } = useForm();
+const [selectedAvailableDay,SetSelectedAvailableDay]=useState('')
+const [selectedNumberOfGuests,SetSelectedNumberOfGuests]=useState('')
+const handleSelectedDay =(date)=>{
+  SetSelectedAvailableDay(date)
+}
+const handleguests =(event) => {
 
-  const onSubmit = (data) => {
+  SetSelectedNumberOfGuests(event.target.value)
+}
+  const onSubmit =async (data) => {
+
     // Handle form submission here
     console.log(data);
     const formData = new FormData()
-    
+    const FormateDate = moment(selectedAvailableDay).format('DD-MM-YYYY')
+    formData.append('date',FormateDate)
+    formData.append('guests_count',data.guests)
+    formData.append('phone',data.phoneNumber)
+    formData.append('name',data.name)
+    formData.append('message',data.message)
+    try {
+      const response = await axios.post(`https://backend.prettytours.net/api/tours/${Data.id}/book`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      // Replace '/api/login' with your actual API endpoint for login
+      if (response.data) {
+      console.log("🚀 ~ onSubmit ~ response.data:", response.data)
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 401) {
+        // فتح الحوار عند الخطأ 401
+        setModalIsOpen(true);
+      } else {
+        console.error('Error submitting data:', error);
+        alert('error submitting data');
+      }
+    }
   };
 
   return (
@@ -39,7 +76,7 @@ console.log(state)
           <Row className="align-items-center">
             <Col md={5} className={`text-start ${styles.availabilityContainer}`}>
               <h3 className={`font-title ${styles.availabilityHeading}`}>Availability</h3>
-              <CalendarCO Data={Data?.days}/>
+              <CalendarCO Data={Data?.days} SetSelected={handleSelectedDay}/>
             </Col>
             <Col md={7} className={`${styles.bookTourContainer}`}>
               <h3 className={`font-title ${styles.bookTourHeading}`}>Book This Tour</h3>
@@ -47,16 +84,12 @@ console.log(state)
                 <form onSubmit={handleSubmit(onSubmit)}>
                  <div className={`d-flex flex-column flex-md-row align-items-center gap-3 w-100 ${styles.bookTourForm}`}>
                   <div className={`w-100 ${styles.formGroup}`}>
-                    <Controller
+                     <Controller
                       name="guests"
                       control={control}
                       render={({ field }) => (
-                        <Form.Select {...field} aria-label="Guests" className={`w-100 bg-input text-white ${styles.formInput}`}>
-                          <option>Guests</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </Form.Select>
+                        <input {...field} aria-label="guests" placeholder="guests"  className={`w-100 bg-input text-white border-none ${styles.formInput} ${styles.CustomPlaceholder}`}  id="exampleInputName" onChange={handleguests} />
+
                       )}
                     />
                     {/* Other input fields */}
@@ -64,7 +97,7 @@ console.log(state)
                       name="name"
                       control={control}
                       render={({ field }) => (
-                        <input {...field} aria-labe="name" className={`w-100 bg-input text-white ${styles.formInput}`}  id="exampleInputName" />
+                        <input {...field} aria-labe="name" placeholder="Name" className={`w-100 bg-input text-white border-none ${styles.formInput} ${styles.CustomPlaceholder}`}  id="exampleInputName" />
 
                       )}
                     />
@@ -75,7 +108,7 @@ console.log(state)
                         <input
                           type="number"
                           {...field}
-                          className={`w-100 bg-input text-white ${styles.formInput}`}
+                          className={`w-100 bg-input text-white border-none ${styles.formInput} ${styles.CustomPlaceholder}`}
                           id="exampleInputPhone"
                           aria-describedby="emailHelp"
                           placeholder="Phone"
@@ -86,18 +119,7 @@ console.log(state)
                     {/* Add other input fields (e.g., Phone) */}
                   </div>
                   <div className={`w-100 ${styles.formGroup}`}>
-                    <Controller
-                      name="paymentMethod"
-                      control={control}
-                      render={({ field }) => (
-                        <Form.Select {...field} aria-label="Payment method" className={`w-100 bg-input text-white ${styles.formInput}`}>
-                          <option>Payment method</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </Form.Select>
-                      )}
-                    />
+                
                     <Controller
                       name="message"
                       control={control}
@@ -105,7 +127,7 @@ console.log(state)
                         <Form.Control
                           as="textarea"
                           rows={4}
-                          className={`w-100 mt-3 bg-input border-none placeholder-white textarea ${styles.formInput} ${styles.textarea}`}
+                          className={`w-100 bg-input text-white border-none ${styles.formInput} ${styles.CustomPlaceholder}`}
                           id="exampleInputMessage"
                           placeholder="send message"
                         />
@@ -127,73 +149,16 @@ console.log(state)
         </Container>
         <div className={`container ${styles.footerAvailability}`}>
           <div className={`d-flex justify-content-between bg-white ${styles.priceContainer}`}>
-            <h4 className='font-content'>Price $600</h4>
-            <h4 className='font-content'>Total for 2 guests $600</h4>
+            <h4 className='font-content'>Price {Data?.price}</h4>
+            <h4 className='font-content'>Total for {selectedNumberOfGuests} guests {Number(selectedNumberOfGuests*Data?.price)}</h4>
           </div>
-          <h2 className={`font-title mt-4 ${styles.vipServiceHeading}`}>Book VIP Service</h2>
+          {modalIsOpen&& <NavigateToLogin open={modalIsOpen} setModalIsOpen={setModalIsOpen}/>}
         </div>
       </div>
 
 
 
-      <div className={`bg-section   ${styles.ForMobile}`} data-aos="fade-down" data-aos-delay="200">
-        <Container className={``}>
-          <Row className={`align-items-center  ${styles.RowAvailability}`}>
-            <Col md={5} className={`p-4 text-center ${styles.availabilityContainer}`}>
-              <h3 className={`font-title  ${styles.availabilityHeading}`}>Availability</h3>
-              <DateRange
-                editableDateInputs={false}
-                onChange={item => setState([item.selection])}
-                moveRangeOnFirstSelection={true}
-                className={`${styles.rdrCalendarWrapper}`}
-                ranges={state.map(range => ({
-                  ...range,
-                  color: '#8998A6'
-                }))}
-              />
-              <div className={`${styles.FormDaily} text-start`}>
-
-                <p className='font-content'>From €350 / daily</p>
-                <p className='font-content'>Total for 12 nights €5600</p>
-              </div>
-            </Col>
-            <Col md={7} className={`${styles.bookTourContainer}`}>
-              <div className={`${styles.bookTourBox}  text-center`}>
-                <h3 className={`font-title ${styles.bookTourHeading} ${styles.bookTourHeadingMobile} `}>Book This Tour</h3>
-                <form className={`d-flex  flex-column  align-items-center gap-3 w-100 ${styles.bookTourForm}`}>
-                  <div className={`w-75 ${styles.formGroup}`}>
-                    <Form.Select aria-label="Default select example" className={`w-100 bg-input text-white ${styles.formInput}`}>
-                      <option>Guests</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </Form.Select>
-                    <input
-                      type="text"
-                      className={`form-control w-100 mt-3 bg-input border-none ${styles.formInput}`}
-                      id="exampleInputName"
-                      aria-describedby="emailHelp"
-                      placeholder="Send MESSAGE"
-                    />
-                    <input
-                      type="url"
-                      className={`form-control w-100 mt-4 bg-input ${styles.formInput}`}
-                      id="exampleInputPhone"
-                      aria-describedby="emailHelp"
-                      placeholder="VISIT WEBSITE"
-                    />
-
-                    <a href="/" style={{ color: "#181D24", textDecoration: "none" }}>Do not speak the language?No problem.</a>
-                    <a href="/" style={{ color: "#181D24", textDecoration: "none" }}>Ask us for help</a>
-                  </div>
-
-                </form>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-
-      </div>
+     
 
     </>
   );

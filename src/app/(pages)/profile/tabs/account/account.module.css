@@ -45,3 +45,10 @@
     color: #234F68;
     
 }
+
+.Editing{
+    width: 125vh;
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center;
+}

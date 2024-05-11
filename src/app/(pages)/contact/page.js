@@ -16,6 +16,7 @@ import Footer from "@/components/home/home-v3/footer";
 
 const Contact = () => {
   const Data = ContactApi()
+  console.log("🚀 ~ Contact ~ Data:", Data)
   return (
 <>
 <div className="wrapper ovh">
