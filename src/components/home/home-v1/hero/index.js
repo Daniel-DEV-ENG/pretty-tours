@@ -7,7 +7,9 @@ const Hero = ({Data}) => {
       <div className="inner-banner-style1 text-center  d-flex flex-column gap-5">
         <div className="Pretty-Tours-container mb-5">
       
-
+<div>
+  
+</div>
         </div>
       
       </div>
